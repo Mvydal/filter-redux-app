@@ -1,0 +1,13 @@
+<!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
+<li [ngClass]="{ 'completed': todo.completed, 'editing': edit }">
+    <div class="view">
+        <!-- Anexo de chkField de ts con el input -->
+        <input class="toggle" type="checkbox" [formControl]="chkField" [checked]="todo.completed">
+        <label (dblclick)="editing()"> {{ todo.text }}</label>
+        <button class="destroy" (click)="destroy()"></button>
+    </div>
+    <!-- Linkamos la propiedad txtInput. El value sera del todo.text 
+        El txtInputEdit es para poner el editing y el foco seleccionado
+        Blur es cuando pierde el foco -->
+    <input class="edit" [value]="todo.text" [formControl]="txtInput" #txtInputEdit (blur)="endEditing()" (keyup.enter)="endEditing()">
+</li>

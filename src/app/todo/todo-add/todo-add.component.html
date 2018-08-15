@@ -1,0 +1,5 @@
+<header class="header">
+    <h1>todos</h1>
+    <!-- Linkamos el input con el formcontrol txtinput y ponemos opcion de keyup.enter en el input para que lance el evento -->
+    <input class="new-todo" placeholder="What needs to be done?" [formControl]="txtInput" (keyup.enter)="addTodo()" autofocus>
+</header>
